@@ -29,17 +29,13 @@ The Process
 
 * <strong>Bonus Idea:</strong>
   - Use local storage to save the history of the game.
-  - Clear that history if needed.
+  - Clear history if needed.
 
 <!-- FAQ -->
 <h2 align="center">
 FAQ
-<h2>
+</h2>
 
-- Question 1
+<!-- - How to handle localStorage?
 
-  - Answer 1
-
-- Question 2
-
-  - Answer 2
+  - Answer 1 -->
