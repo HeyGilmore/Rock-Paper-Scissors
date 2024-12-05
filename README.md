@@ -8,21 +8,11 @@
 
 ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
 
-<!-- ROADMAP
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish -->
-
+<!-- ROADMAP -->
 <h2 align="center">
   Roadmap
 </h2>
-- [ ] Build Skeleton
+- [ ] Build index with title & Start Button
     - [ ]
 
 <h2 align="center">
@@ -40,3 +30,4 @@ Bonus Idea:
 
 - Use local storage to save the history of the game.
 - Clear that history if needed.
+  `
