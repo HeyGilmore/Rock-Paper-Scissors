@@ -47,3 +47,33 @@ main{
     background-color: rgb(59, 172, 93); /* Change to your desired hover color */
     transition: background-color 0.3s ease; /* Optional: add smooth transition */
 }
+
+/* _________ Choose Fate Section _________ */
+/* title */
+#chooseFateTitle{
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 2em;
+}
+/* Icons  */
+#chooseFateSection #iconSection section img {
+    max-width: 100%;
+    height: auto;
+    transition: transform .7s ease-out;  /* Hover Effect*/
+    transition: filter 0.3s ease; /* Clicked Effect*/
+}
+/* Hover effect when icon is clicked */
+#chooseFateSection #iconSection section img:hover {
+    transform: scale(1.2);
+}
+/* Box shadow effect when icon is clicked */
+.box-shadow {
+    filter: drop-shadow(0px 0px 25px rgba(255, 255, 255, 0.728)); 
+    transform: scale(1.2);
+}
+
+/* Button hover effect */
+.continueButton:hover {
+    background-color: rgb(59, 172, 93); /* Change to your desired hover color */
+    transition: background-color 0.3s ease; /* Optional: add smooth transition */
+}

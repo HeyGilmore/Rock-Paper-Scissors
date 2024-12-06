@@ -12,8 +12,12 @@
 </h2>
 
 - [x] Build the Title, paragraph, and Start Button
-- [x] Style the page with a hover button
-- [ ] When button pushed, para & button fade away
+  - [x] Style the page with a hover button
+  - [x] When button pushed, para & button fade away
+  - [x] Create a second section with title, 3 images, & button
+    - [x] Button match
+    - [x] Images Hover
+    - [x] Button Clicked, stays hover
 
 <h2 align="center">
 The Process
