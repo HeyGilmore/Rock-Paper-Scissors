@@ -44,5 +44,6 @@ main{
 
 /* Button hover effect */
 .startButton:hover {
-    background-color: rgb(59, 172, 93);
+    background-color: rgb(59, 172, 93); /* Change to your desired hover color */
+    transition: background-color 0.3s ease; /* Optional: add smooth transition */
 }

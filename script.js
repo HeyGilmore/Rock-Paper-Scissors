@@ -24,14 +24,19 @@ container.style.cssText = `font-size: 20px;
 
 // Select the parent container
 const STARTBUTTON = document.querySelector("#startButtonSection");
+
 // Create the button element
 const ButtonCreation = document.createElement("button");
+
 // Add the 'startButton' class
 ButtonCreation.classList.add("startButton");
+
 // Set the button's text
 ButtonCreation.textContent = "Start!";
+
 // Append the button to the parent container
 STARTBUTTON.appendChild(ButtonCreation);
+
 // Style the parent container
 STARTBUTTON.style.cssText = `
     display: flex;
@@ -40,9 +45,8 @@ STARTBUTTON.style.cssText = `
     margin-top: 3.5em;
 `;
 
-// Add some inline styles directly to the button (optional, but cleaner in CSS)
+// Remove inline background color and let CSS handle it
 ButtonCreation.style.cssText = `
-    background-color: rgb(87, 241, 133);
     padding: 1em 5em;
     border-radius: 20px;
     border: none;
@@ -56,3 +60,14 @@ ButtonCreation.style.cssText = `
 `;
 
 
+//------- Button disappear when clicked
+const btn = document.querySelector(".startButton");
+btn.addEventListener("click", function (e) {
+    e.preventDefault;
+    // alert("Alert");
+
+    // #introductionSection
+    const introSection = document.querySelector("#introductionSection")
+    introSection.style.cssText= "display:none"
+
+  });
