@@ -77,3 +77,25 @@ main{
     background-color: rgb(59, 172, 93); /* Change to your desired hover color */
     transition: background-color 0.3s ease; /* Optional: add smooth transition */
 }
+
+#finalResults div{
+    display: flex;
+    justify-content: space-around;
+}
+
+#finalResults div section h2{
+    text-align: center;
+    font-size: 32px;
+    text-decoration: underline;
+    padding-bottom: 24px;
+}
+
+#finalResults div section p{
+    text-align: center;
+    font-size: 22px;
+}
+
+#finalResults div section #countdown{
+    font-size: 48px;
+    font-weight: 700;
+}

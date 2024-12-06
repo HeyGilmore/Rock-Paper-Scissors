@@ -118,11 +118,11 @@ ContinueBTNCreation.style.cssText = `
     text-align: center;
     display: inline-block;
 `;
+//---- Continue is disabled 
+ContinueBTNCreation.disabled = true;
 
 
-
-// ------------ When Icon is clicked stays hover
-
+// -------------- When Icon is clicked stays hover --------------///s
 //-- Select all image elements inside the iconSection
 const icons = document.querySelectorAll('#iconSection img');
 //-- Run a loop for all icons.
@@ -130,9 +130,34 @@ icons.forEach(icon => {
     //-- on Every icon, click function
     icon.addEventListener('click', function(){
         //-- Remove box-shadow class from all images
-        //--  Allows one image to have the box-shadow effect
         icons.forEach(i => i.classList.remove('box-shadow'));
-
+        //-- Through the loop a box shadow class is add 
         this.classList.add('box-shadow');
+        //---- Continue is turned on 
+        ContinueBTNCreation.disabled = false;
     })
 })
+
+
+//-- Final results display none
+// #chooseFateSection starts off display none till button
+const finalResultSection = document.querySelector("#finalResults");
+finalResultSection.style.cssText = "display: none";
+
+
+// #chooseFateSection starts off display none till button
+const countdownSection = document.querySelector("#countdownSection");
+countdownSection.style.cssText = "display: none";
+
+countdownSection
+
+//---------- When Continue button pushed display none --------- 
+ContinueBTNCreation.addEventListener("click", function (e) {
+    e.preventDefault;
+    // #chooseFateSection disappear
+    const continueSection = document.querySelector("#chooseFateSection");
+    continueSection.style.cssText = "display:none;";
+
+
+    countdownSection.style.cssText = "display: block;";
+});
