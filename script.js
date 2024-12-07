@@ -121,6 +121,7 @@ ContinueBTNCreation.style.cssText = `
 //---- Continue is disabled 
 ContinueBTNCreation.disabled = true;
 
+let userChoice;
 
 // -------------- When Icon is clicked stays hover --------------///s
 //-- Select all image elements inside the iconSection
@@ -129,8 +130,9 @@ const icons = document.querySelectorAll('#iconSection img');
 icons.forEach(icon => {
     //-- on Every icon, click function
     icon.addEventListener('click', function(){
+        userChoice = icon.alt
         //-- Remove box-shadow class from all images
-        icons.forEach(i => i.classList.remove('box-shadow'));
+        icons.forEach(i => i.classList.remove('box-shadow') );
         //-- Through the loop a box shadow class is add 
         this.classList.add('box-shadow');
         //---- Continue is turned on 
@@ -163,7 +165,7 @@ ContinueBTNCreation.addEventListener("click", function (e) {
     countdown();
 });
 
-
+// ----- Function to count down ---------
 function countdown() {
     let i = 3; // Initialize the countdown starting number
     const displayElement = document.getElementById('count');  // Get the element to display the countdown
@@ -182,9 +184,117 @@ function countdown() {
             displayElement.innerHTML = "Shoot!";
             displayElement.style.cssText = "display: none";
             finalResultSection.style.cssText = "display: block";
+            ResultShowcase();
         }
     }
 
     // Start the countdown by calling the helper function
     updateCountdown();
 }
+
+// ----- Function to show case the final results.  ---------
+function ResultShowcase() {
+    // Generate a random number between 1 and 3
+    let randomNumber = Math.floor(Math.random() * 3) + 1;
+    // Gonna capture the item chosen
+    let computerResultsString;
+    //-- string that is going to be replaced
+    const computerAnswer = document.querySelector("#computerAnswer");
+    //-- Icon that will be replaced
+    const computerIcon = document.querySelector("#computerIcon");
+    //----
+    const userAnswer = document.querySelector("#userAnswer");
+    const userIcon = document.querySelector("#userIcon");
+    
+
+
+    // Set the computer's result and update the image source
+    if (randomNumber === 1) {
+        computerResultsString = "Rock";
+        computerIcon.src = "https://img.icons8.com/stickers/200/rock.png"; // Path to the Rock image
+        computerIcon.alt = "Rock";
+    } else if (randomNumber === 2) {
+        computerResultsString = "Paper";
+        computerIcon.src = "https://img.icons8.com/stickers/200/paper.png"; // Path to the Paper image
+        computerIcon.alt = "Paper";  
+    } else {
+        computerResultsString = "Scissors";
+        computerIcon.src = "https://img.icons8.com/stickers/200/scissors.png"; // Path to the Scissors image
+        computerIcon.alt = "Scissors";  
+    }
+
+    
+   // Set the computer's result and update the image source
+   if (userChoice === "Rock") {
+    userIcon.src = "https://img.icons8.com/stickers/200/rock.png"; // Path to the Rock image
+    userIcon.alt = "Rock";
+} else if (userChoice === "Paper") {
+    userIcon.src = "https://img.icons8.com/stickers/200/paper.png"; // Path to the Paper image
+    userIcon.alt = "Paper";  
+} else {
+    userIcon.src = "https://img.icons8.com/stickers/200/scissors.png"; // Path to the Scissors image
+    userIcon.alt = "Scissors";  
+}
+
+
+    // Update the text content of the computerAnswer element
+    computerAnswer.textContent = computerResultsString;
+
+    userAnswer.textContent = userChoice;
+
+
+
+    // Determine the game result
+    let result;
+    let resultMessage = document.querySelector("#announcement");
+    if (userChoice === computerResultsString) {
+        result = "It's a tie!";
+    } else if (
+        (userChoice === "Rock" && computerResultsString === "Scissors") ||
+        (userChoice === "Paper" && computerResultsString === "Rock") ||
+        (userChoice === "Scissors" && computerResultsString === "Paper")
+    ) {
+        result = "You win!";
+    } else {
+        result = "You lose!";
+    }
+
+    // Display the result
+    resultMessage.textContent = result;
+
+    const playAgainSection = document.querySelector("#playAgainSection");
+    const buttonAgain = document.createElement("button");
+    buttonAgain.classList.add("playAgainButton");
+    buttonAgain.textContent = "Play Again?";
+    playAgainSection.appendChild(buttonAgain);
+
+    // Style the parent container
+    playAgainSection.style.cssText = `
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 3.5em;
+`;
+// Remove inline background color and let CSS handle it
+buttonAgain.style.cssText = `
+padding: 1em 5em;
+border-radius: 20px;
+border: none;
+text-transform: uppercase;
+font-weight: 600;
+letter-spacing: .3px;
+font-size: 18px;
+cursor: pointer; /* Ensures it looks clickable */
+text-align: center;
+display: inline-block;
+`;
+
+}
+
+
+
+
+
+
+
+

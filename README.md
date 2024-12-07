@@ -14,10 +14,17 @@
 - [x] Build the Title, paragraph, and Start Button
   - [x] Style the page with a hover button
   - [x] When button pushed, para & button fade away
-  - [x] Create a second section with title, 3 images, & button
-    - [x] Button match
-    - [x] Images Hover
-    - [x] Button Clicked, stays hover
+- [x] Create a second section with title, 3 images, & button
+  - [x] Button match
+  - [x] Images Hover
+  - [x] Button Clicked, stays hover
+  - [x] Button is disabled until an icon is chosen
+- [x] Create Final Page Design
+- [x] Make it functional
+  - [x] Generate the out for the computer
+  - [x] Generate a banner to state whether you win or lose.
+- [x] Create a button to play again.
+- [ ] Functional Play Again button to start over
 
 <h2 align="center">
 The Process
