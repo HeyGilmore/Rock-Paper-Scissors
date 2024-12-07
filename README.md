@@ -24,7 +24,9 @@
   - [x] Generate the out for the computer
   - [x] Generate a banner to state whether you win or lose.
 - [x] Create a button to play again.
-- [ ] Functional Play Again button to start over
+- [x] Functional Play Again button to start over
+  - [x] got a greeting message when pushed
+- [ ] WIll have to refactor my js in order to get tbe play again button to work.
 
 <h2 align="center">
 The Process

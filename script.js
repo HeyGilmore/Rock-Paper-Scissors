@@ -58,6 +58,9 @@ ButtonCreation.style.cssText = `
 `;
 
 
+const introSection = document.querySelector("#introductionSection")
+
+
 // #chooseFateSection starts off display none till button
 const chooseFateSection = document.querySelector("#chooseFateSection");
 chooseFateSection.style.cssText = "display: none";
@@ -69,7 +72,6 @@ btn.addEventListener("click", function (e) {
     // alert("Alert");
 
     // #introductionSection disappear
-    const introSection = document.querySelector("#introductionSection")
     introSection.style.cssText= "display:none";
 
     // #chooseFateSection appear
@@ -192,6 +194,7 @@ function countdown() {
     updateCountdown();
 }
 
+const finalSection = document.querySelector("#playAgainSection")
 // ----- Function to show case the final results.  ---------
 function ResultShowcase() {
     // Generate a random number between 1 and 3
@@ -262,10 +265,16 @@ function ResultShowcase() {
     // Display the result
     resultMessage.textContent = result;
 
+    // Get the section where the button will go
     const playAgainSection = document.querySelector("#playAgainSection");
+    
+    // Create the button element
     const buttonAgain = document.createElement("button");
     buttonAgain.classList.add("playAgainButton");
+    buttonAgain.id = "playAgainBtn";  // Add an ID to the button
     buttonAgain.textContent = "Play Again?";
+    
+    // Append the button to the section
     playAgainSection.appendChild(buttonAgain);
 
     // Style the parent container
@@ -289,8 +298,16 @@ text-align: center;
 display: inline-block;
 `;
 
-}
 
+
+// Add event listener to the dynamically created button
+buttonAgain.addEventListener("click", (e) => {
+    e.preventDefault();  // Prevent default behavior (if any)
+   alert("Working");
+});
+
+
+}
 
 
 
