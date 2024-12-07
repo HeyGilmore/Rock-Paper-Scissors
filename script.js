@@ -160,4 +160,31 @@ ContinueBTNCreation.addEventListener("click", function (e) {
 
 
     countdownSection.style.cssText = "display: block;";
+    countdown();
 });
+
+
+function countdown() {
+    let i = 3; // Initialize the countdown starting number
+    const displayElement = document.getElementById('count');  // Get the element to display the countdown
+
+    // Helper function to update the countdown
+    function updateCountdown() {
+        // If countdown is still above 0, update the display and continue the countdown
+        if (i > 0) {
+            displayElement.innerHTML = i; // Set the current countdown number to the HTML element
+            i--;  // Decrease the counter by 1
+
+            // Schedule the next update in 1 second (1000 ms)
+            setTimeout(updateCountdown, 1000); 
+        } else {
+            // Once the countdown is finished, display "Done!"
+            displayElement.innerHTML = "Shoot!";
+            displayElement.style.cssText = "display: none";
+            finalResultSection.style.cssText = "display: block";
+        }
+    }
+
+    // Start the countdown by calling the helper function
+    updateCountdown();
+}
