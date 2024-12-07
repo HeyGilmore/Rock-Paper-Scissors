@@ -1,317 +1,356 @@
-const startButton = document.querySelector("#startButton");
+//---------------- Stages of Display ------------------
+//-------- Stage One
+let StageOne = () => {
+  // [Introduction Section]
+  const introSection = document.querySelector("#introductionSection");
+  introSection.style.cssText = `width: 90%;
+                                 height: 40%;
+                                 display: flex;
+                                 justify-content: center;
+                                 align-items: center;
+                                 flex-direction: column;
+                                 margin: 0 auto;
+                                 max-width: 600px;`;
 
-//------- Introduction - paragraph input
-// [Grabbing aboutSection]
-const container = document.querySelector("#aboutSection");
-// [Creates a paragraph]
-const content = document.createElement("p");
-// [Adding Class 'intro']
-container.classList.add("intro");
-// [Content]
-content.textContent = "Test your luck and strategy in this classic battle of wits. Pick your weapon: rock, paper, or scissors, and challenge the computer to see who reigns supreme. Can you outsmart the machine, or will chance have the last laugh? Let the games begin – may the odds (and your instincts) be ever in your favor!";
-// add to html [aboutSection]
-container.appendChild(content);
+  // [Choose your fate]
+  const chooseFateSection = document.querySelector("#chooseFateSection");
+  chooseFateSection.style.cssText = "display:none;";
+  // [Final Countdown]
+  const countDownSection = document.querySelector("#countdownSection");
+  countDownSection.style.cssText = "display:none;";
+  // [Results]
+  const finalResults = document.querySelector("#finalResults");
+  finalResults.style.cssText = "display:none;";
+  introductionPage();
+};
 
-// adds several style rules
-container.style.cssText = `font-size: 20px;
-                            letter-spacing: .4px;
-                            line-height: 1.2em;
-                            text-align: center;`;
+//--------- Stage Two
+let StageTwo = () => {
+  // [Introduction Section]
+  const introSection = document.querySelector("#introductionSection");
+  introSection.style.cssText = "display:none;";
 
+  // [Choose your fate]
+  const chooseFateSection = document.querySelector("#chooseFateSection");
+  chooseFateSection.style.cssText = "display:block;";
 
+  // [Clear previous content in choose fate section]
+  const chooseFateTitleSection = document.querySelector("#chooseFateTitle");
+  chooseFateTitleSection.innerHTML = ""; // Clear any previous title
 
-
-
-// Select the parent container
-const STARTBUTTON = document.querySelector("#startButtonSection");
-
-// Create the button element
-const ButtonCreation = document.createElement("button");
-// Add the 'startButton' class
-ButtonCreation.classList.add("startButton");
-// Set the button's text
-ButtonCreation.textContent = "Start!";
-
-// Append the button to the parent container
-STARTBUTTON.appendChild(ButtonCreation);
-
-// Style the parent container
-STARTBUTTON.style.cssText = `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3.5em;
-`;
-
-// Remove inline background color and let CSS handle it
-ButtonCreation.style.cssText = `
-    padding: 1em 5em;
-    border-radius: 20px;
-    border: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: .3px;
-    font-size: 18px;
-    cursor: pointer; /* Ensures it looks clickable */
-    text-align: center;
-    display: inline-block;
-`;
-
-
-const introSection = document.querySelector("#introductionSection")
-
-
-// #chooseFateSection starts off display none till button
-const chooseFateSection = document.querySelector("#chooseFateSection");
-chooseFateSection.style.cssText = "display: none";
-
-//------- Button disappear when clicked
-const btn = document.querySelector(".startButton");
-btn.addEventListener("click", function (e) {
-    e.preventDefault;
-    // alert("Alert");
-
-    // #introductionSection disappear
-    introSection.style.cssText= "display:none";
-
-    // #chooseFateSection appear
-    chooseFateSection.style.cssText = "display: block";
+  const continueButtonSection = document.querySelector(
+    "#continueButtonSection"
+  );
+  continueButtonSection.innerHTML = ""; // Clear any previous continue button
+  // Reset user choice (important for next game)
+  userChoice = undefined;
+  // Remove the box-shadow from all icons
+  const iconImages = document.querySelectorAll(".iconsImages");
+  iconImages.forEach((icon) => {
+    icon.classList.remove("box-shadow"); // Remove the box-shadow class
   });
 
+  // [Final Countdown]
+  const countDownSection = document.querySelector("#countdownSection");
+  countDownSection.style.cssText = "display:none;";
 
-//-------- Icon Section ----------//
-const iconSection = document.querySelector("#iconSection");
-iconSection.style.cssText = `
-                            display:flex;
-                            justify-content: space-evenly;
-                            margin: 0 auto;
-                            max-width:820px;                           
-`
+  // [Results]
+  const finalResults = document.querySelector("#finalResults");
+  finalResults.style.cssText = "display:none;";
 
+  chooseYourFateSection();
+};
 
-//------------------- Continue Button ----------//
-// Select the parent container
-const ContinueButtonSection = document.querySelector("#continueButtonSection");
-// Create the button element
-const ContinueBTNCreation = document.createElement("button");
-// Add the 'startButton' class
-ContinueBTNCreation.classList.add("continueButton");
-// Set the button's text
-ContinueBTNCreation.textContent = "Continue";
-// Append the button to the parent container
-ContinueButtonSection.appendChild(ContinueBTNCreation);
-// Style the parent container
-ContinueButtonSection.style.cssText = `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3.5em;
-`;
-// Remove inline background color and let CSS handle it
-ContinueBTNCreation.style.cssText = `
-    padding: 1em 5em;
-    border-radius: 20px;
-    border: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: .3px;
-    font-size: 18px;
-    cursor: pointer; /* Ensures it looks clickable */
-    text-align: center;
-    display: inline-block;
-`;
-//---- Continue is disabled 
-ContinueBTNCreation.disabled = true;
+//--------- Stage Three
+let StageThree = () => {
+  // [Introduction Section]
+  const introSection = document.querySelector("#introductionSection");
+  introSection.style.cssText = "display:none;";
+  // [Choose your fate]
+  const chooseFateSection = document.querySelector("#chooseFateSection");
+  chooseFateSection.style.cssText = "display:none;";
+  // [Final Countdown]
+  const countDownSection = document.querySelector("#countdownSection");
+  countDownSection.style.cssText = "display:block;";
+  // [Results]
+  const finalResults = document.querySelector("#finalResults");
+  finalResults.style.cssText = "display:none;";
+  // [Start the Countdown]
+  countdown();
+};
 
+//--------- Stage Four
+let StageFour = () => {
+  // [Introduction Section]
+  const introSection = document.querySelector("#introductionSection");
+  introSection.style.cssText = "display:none;";
+
+  // [Choose your fate]
+  const chooseFateSection = document.querySelector("#chooseFateSection");
+  chooseFateSection.style.cssText = "display:none;";
+
+  // [Final Countdown]
+  const countDownSection = document.querySelector("#countdownSection");
+  countDownSection.style.cssText = "display:none;";
+
+  // [Results]
+  const finalResults = document.querySelector("#finalResults");
+  finalResults.style.cssText = "display:block;";
+
+  // [Show the Results]
+  resultsShowcase();
+  playAgainBTN();
+};
+
+//---------------- Introduction Page ------------------
+let introductionPage = () => {
+  //--------- Start Paragraph
+  const descriptionSection = document.querySelector("#startButtonSection");
+  const description = document.createElement("p");
+  description.textContent =
+    "Test your luck and strategy in this classic battle of wits. Pick your weapon: rock, paper, or scissors, and challenge the computer to see who reigns supreme. Can you outsmart the machine, or will chance have the last laugh? Let the games begin – may the odds (and your instincts) be ever in your favor!";
+  descriptionSection.appendChild(description);
+  description.style.cssText = `font-size:20px;
+                                letter-spacing: 0.5px;
+                                line-height: 1.2em;
+                                text-align: center;
+                                margin-bottom: 2.5em;`;
+
+  //------- Start Button Section
+  const startBtnSection = document.querySelector("#startButtonSection");
+  const startButton = document.createElement("button");
+  startButton.classList.add("startButton");
+  startButton.id = "startBTN";
+  startButton.textContent = "Start!";
+  startBtnSection.appendChild(startButton);
+  startBtnSection.style.cssText = `width: 90%;
+                                    height: 40%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    flex-direction: column;
+                                    margin: 0 auto;`;
+
+  startButton.style.cssText = `padding: 1em 5em;
+                                border-radius: 20px;
+                                border: none;
+                                text-transform: uppercase;
+                                font-weight: 600;
+                                letter-spacing: 0.3px;
+                                font-size: 18px;
+                                cursor: pointer;
+                                text-align: center;
+                                display: inline-block;`;
+
+  //---- [Functionality]
+  const startBTN = document.querySelector("#startBTN");
+  startBTN.addEventListener("click", (e) => {
+    e.preventDefault();
+    StageTwo();
+  });
+};
+
+//-------------- Choose Your Fate Page ----------------
+// [User Choice Saved - Global]
 let userChoice;
+let chooseYourFateSection = () => {
+  // [Section Header]
+  const chooseFateTitleSection = document.querySelector("#chooseFateTitle");
+  const creationTitle = document.createElement("h2");
+  creationTitle.textContent = "Choose your fate:";
+  chooseFateTitleSection.appendChild(creationTitle);
+  creationTitle.style.cssText =
+    "text-align: center; font-size: 32px; margin: 2em 0;";
 
-// -------------- When Icon is clicked stays hover --------------///s
-//-- Select all image elements inside the iconSection
-const icons = document.querySelectorAll('#iconSection img');
-//-- Run a loop for all icons.
-icons.forEach(icon => {
-    //-- on Every icon, click function
-    icon.addEventListener('click', function(){
-        userChoice = icon.alt
-        //-- Remove box-shadow class from all images
-        icons.forEach(i => i.classList.remove('box-shadow') );
-        //-- Through the loop a box shadow class is add 
-        this.classList.add('box-shadow');
-        //---- Continue is turned on 
-        ContinueBTNCreation.disabled = false;
-    })
-})
+  // [Icons Section]
+  const iconSection = document.querySelector("#iconSection");
+  iconSection.style.cssText = `display: flex;
+                           justify-content: space-evenly;
+                           margin: 0 auto;
+                           max-width: 820px;`;
 
+  // [Icons IMG]
+  const iconImages = document.querySelectorAll(".iconsImages");
+  iconImages.forEach((image) => {
+    image.style.cssText = `max-width: 100%;
+                          height: auto;
+                          transition: all 0.6s ease-out;`;
+  });
 
-//-- Final results display none
-// #chooseFateSection starts off display none till button
-const finalResultSection = document.querySelector("#finalResults");
-finalResultSection.style.cssText = "display: none";
+  // [Every time an icon is clicked, stays highlighted]
+  iconImages.forEach((icon) => {
+    icon.addEventListener("click", function () {
+      userChoice = icon.alt;
+      iconImages.forEach((i) => i.classList.remove("box-shadow"));
+      this.classList.add("box-shadow");
+      continueBTN.disabled = false;
+    });
+  });
 
+  //----- [Continue Button]
+  const continueButtonSection = document.querySelector(
+    "#continueButtonSection"
+  );
+  const continueBTN = document.createElement("button");
+  continueBTN.classList.add("continueButton");
+  continueBTN.textContent = "Continue";
+  continueButtonSection.appendChild(continueBTN);
+  continueButtonSection.style.cssText = `display: flex;
+                                       justify-content: center;
+                                       align-items: center;
+                                       margin-top: 3.5em;`;
 
-// #chooseFateSection starts off display none till button
-const countdownSection = document.querySelector("#countdownSection");
-countdownSection.style.cssText = "display: none";
+  continueBTN.style.cssText = `padding: 1em 5em;
+                            border-radius: 20px;
+                            border: none;
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            letter-spacing: 0.3px;
+                            font-size: 18px;
+                            cursor: pointer;
+                            text-align: center;
+                            display: inline-block;`;
 
-countdownSection
+  // [Continue is disabled]
+  continueBTN.disabled = true;
 
-//---------- When Continue button pushed display none --------- 
-ContinueBTNCreation.addEventListener("click", function (e) {
-    e.preventDefault;
-    // #chooseFateSection disappear
-    const continueSection = document.querySelector("#chooseFateSection");
-    continueSection.style.cssText = "display:none;";
+  // [Continue button is clicked]
+  continueBTN.addEventListener("click", function (e) {
+    StageThree();
+  });
+};
 
-
-    countdownSection.style.cssText = "display: block;";
-    countdown();
-});
-
-// ----- Function to count down ---------
+//-------------- Countdown to 3 ----------------
+// [Countdown to 3]
 function countdown() {
-    let i = 3; // Initialize the countdown starting number
-    const displayElement = document.getElementById('count');  // Get the element to display the countdown
+  // [Starting number for countdown]
+  let i = 3;
+  // [Element to show the countdown]
+  const displayElement = document.getElementById("count");
+  // [Displaying the count]
+  displayElement.innerHTML = i;
 
-    // Helper function to update the countdown
-    function updateCountdown() {
-        // If countdown is still above 0, update the display and continue the countdown
-        if (i > 0) {
-            displayElement.innerHTML = i; // Set the current countdown number to the HTML element
-            i--;  // Decrease the counter by 1
-
-            // Schedule the next update in 1 second (1000 ms)
-            setTimeout(updateCountdown, 1000); 
-        } else {
-            // Once the countdown is finished, display "Done!"
-            displayElement.innerHTML = "Shoot!";
-            displayElement.style.cssText = "display: none";
-            finalResultSection.style.cssText = "display: block";
-            ResultShowcase();
-        }
+  const countdownInterval = setInterval(() => {
+    i--;
+    displayElement.innerHTML = i;
+    if (i === 0) {
+      clearInterval(countdownInterval);
+      displayElement.innerHTML = "Shoot!";
+      StageFour();
     }
-
-    // Start the countdown by calling the helper function
-    updateCountdown();
+  }, 1000); // Update every 1 second
 }
 
-const finalSection = document.querySelector("#playAgainSection")
-// ----- Function to show case the final results.  ---------
-function ResultShowcase() {
-    // Generate a random number between 1 and 3
-    let randomNumber = Math.floor(Math.random() * 3) + 1;
-    // Gonna capture the item chosen
-    let computerResultsString;
-    //-- string that is going to be replaced
-    const computerAnswer = document.querySelector("#computerAnswer");
-    //-- Icon that will be replaced
-    const computerIcon = document.querySelector("#computerIcon");
-    //----
-    const userAnswer = document.querySelector("#userAnswer");
-    const userIcon = document.querySelector("#userIcon");
-    
+//-------------- Showcase the Final results ----------------
+let resultsShowcase = () => {
+  let randomNumber = Math.floor(Math.random() * 3) + 1;
+  const computerAnswer = document.querySelector("#computerAnswer");
+  const userAnswer = document.querySelector("#userAnswer");
+  computerAnswer.textContent = computerAnswerGenerator(randomNumber);
+  userAnswer.textContent = userAnswerGenerator(userChoice);
+  didWeWinResults(userChoice);
+};
 
+//-------------- Computer Answer Generator ----------------
+let computerResultsString = ""; // Declare a global variable
+let computerAnswerGenerator = (randomNumber) => {
+  const computerIcon = document.querySelector("#computerIcon");
 
-    // Set the computer's result and update the image source
-    if (randomNumber === 1) {
-        computerResultsString = "Rock";
-        computerIcon.src = "https://img.icons8.com/stickers/200/rock.png"; // Path to the Rock image
-        computerIcon.alt = "Rock";
-    } else if (randomNumber === 2) {
-        computerResultsString = "Paper";
-        computerIcon.src = "https://img.icons8.com/stickers/200/paper.png"; // Path to the Paper image
-        computerIcon.alt = "Paper";  
-    } else {
-        computerResultsString = "Scissors";
-        computerIcon.src = "https://img.icons8.com/stickers/200/scissors.png"; // Path to the Scissors image
-        computerIcon.alt = "Scissors";  
-    }
+  if (randomNumber === 1) {
+    computerResultsString = "Rock";
+    computerIcon.src = "https://img.icons8.com/stickers/200/rock.png";
+    computerIcon.alt = "Rock";
+  } else if (randomNumber === 2) {
+    computerResultsString = "Paper";
+    computerIcon.src = "https://img.icons8.com/stickers/200/paper.png";
+    computerIcon.alt = "Paper";
+  } else {
+    computerResultsString = "Scissors";
+    computerIcon.src = "https://img.icons8.com/stickers/200/scissors.png";
+    computerIcon.alt = "Scissors";
+  }
+  return computerResultsString;
+};
 
-    
-   // Set the computer's result and update the image source
-   if (userChoice === "Rock") {
-    userIcon.src = "https://img.icons8.com/stickers/200/rock.png"; // Path to the Rock image
+//-------------- User Answer Generator ----------------
+let userAnswerGenerator = (userChoice) => {
+  const userIcon = document.querySelector("#userIcon");
+  if (userChoice === "Rock") {
+    userIcon.src = "https://img.icons8.com/stickers/200/rock.png";
     userIcon.alt = "Rock";
-} else if (userChoice === "Paper") {
-    userIcon.src = "https://img.icons8.com/stickers/200/paper.png"; // Path to the Paper image
-    userIcon.alt = "Paper";  
-} else {
-    userIcon.src = "https://img.icons8.com/stickers/200/scissors.png"; // Path to the Scissors image
-    userIcon.alt = "Scissors";  
-}
+  } else if (userChoice === "Paper") {
+    userIcon.src = "https://img.icons8.com/stickers/200/paper.png";
+    userIcon.alt = "Paper";
+  } else {
+    userIcon.src = "https://img.icons8.com/stickers/200/scissors.png";
+    userIcon.alt = "Scissors";
+  }
+  return userChoice;
+};
 
+//-------------- FINAL RESULTS - DID WE WIN? ----------------
+let didWeWinResults = (userChoice) => {
+  let result;
+  let resultMessage = document.querySelector("#announcement");
 
-    // Update the text content of the computerAnswer element
-    computerAnswer.textContent = computerResultsString;
+  if (userChoice === computerResultsString) {
+    result = "It's a tie!";
+    resultMessage.style.color = "yellow";
+  } else if (
+    (userChoice === "Rock" && computerResultsString === "Scissors") ||
+    (userChoice === "Paper" && computerResultsString === "Rock") ||
+    (userChoice === "Scissors" && computerResultsString === "Paper")
+  ) {
+    result = "You win!";
+    resultMessage.style.color = "green";
+  } else {
+    result = "You lose!";
+    resultMessage.style.color = "red";
+  }
 
-    userAnswer.textContent = userChoice;
+  // Display the result
+  resultMessage.textContent = result;
+};
 
+//-------------- Wanna play again? ----------------
+let playAgainBTN = () => {
+  const playAgainSection = document.querySelector("#playAgainSection");
 
+  // Check if the "Play Again" button already exists
+  if (!document.querySelector("#playAgainBtn")) {
+    const playAgainButton = document.createElement("button");
+    playAgainButton.classList.add("playAgainButton");
+    playAgainButton.id = "playAgainBtn";
+    playAgainButton.textContent = "Play Again?";
+    playAgainSection.appendChild(playAgainButton);
 
-    // Determine the game result
-    let result;
-    let resultMessage = document.querySelector("#announcement");
-    if (userChoice === computerResultsString) {
-        result = "It's a tie!";
-    } else if (
-        (userChoice === "Rock" && computerResultsString === "Scissors") ||
-        (userChoice === "Paper" && computerResultsString === "Rock") ||
-        (userChoice === "Scissors" && computerResultsString === "Paper")
-    ) {
-        result = "You win!";
-    } else {
-        result = "You lose!";
-    }
-
-    // Display the result
-    resultMessage.textContent = result;
-
-    // Get the section where the button will go
-    const playAgainSection = document.querySelector("#playAgainSection");
-    
-    // Create the button element
-    const buttonAgain = document.createElement("button");
-    buttonAgain.classList.add("playAgainButton");
-    buttonAgain.id = "playAgainBtn";  // Add an ID to the button
-    buttonAgain.textContent = "Play Again?";
-    
-    // Append the button to the section
-    playAgainSection.appendChild(buttonAgain);
-
-    // Style the parent container
     playAgainSection.style.cssText = `
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: 3.5em;
-`;
-// Remove inline background color and let CSS handle it
-buttonAgain.style.cssText = `
-padding: 1em 5em;
-border-radius: 20px;
-border: none;
-text-transform: uppercase;
-font-weight: 600;
-letter-spacing: .3px;
-font-size: 18px;
-cursor: pointer; /* Ensures it looks clickable */
-text-align: center;
-display: inline-block;
-`;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3.5em;
+        `;
 
+    playAgainButton.style.cssText = `
+            padding: 1em 5em;
+            border-radius: 20px;
+            border: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+        `;
 
+    playAgainButton.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent default behavior (if any)
+      userChoice = undefined; // Reset user choice
+      StageTwo(); // Restart game
+    });
+  }
+};
 
-// Add event listener to the dynamically created button
-buttonAgain.addEventListener("click", (e) => {
-    e.preventDefault();  // Prevent default behavior (if any)
-   alert("Working");
-});
-
-
-}
-
-
-
-
-
-
-
+//-------------- Starting Point ----------------
+StageOne();

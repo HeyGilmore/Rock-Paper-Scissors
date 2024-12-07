@@ -1,67 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="a Rock-Paper-Scissors game built with HTML, CSS, and JavaScript. It's a hands-on exercise in learning to approach problems step by step while building confidence in DOM manipulation and event handling.">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta name="description" content="A Rock-Paper-Scissors game built with HTML, CSS, and JavaScript. A hands-on exercise in learning problem-solving, DOM manipulation, and event handling.">
+  <link rel="stylesheet" href="styles.css">
   <title>Rock, Paper, & Scissors</title>
 </head>
+
 <body>
   <header>
     <div>
-      <h1>Welcome to the ultimate showdown<br/> Rock, Paper, Scissors! 🎉 </h1>
+      <h1>Welcome to the ultimate showdown<br>Rock, Paper, Scissors!</h1>
     </div>
   </header>
+
   <main>
-    <!-- Introduction -->
+    <!-- Introduction Section -->
     <div id="introductionSection">
-        <!-- Intro Para -->
-        <section id="aboutSection"></section>
-        <section id="startButtonSection"></section>
+      <section id="aboutSection"></section>
+      <section id="startButtonSection"></section>
     </div>
-    <!-- Section containing Images-->
-     <div id="chooseFateSection">
-      <!-- Title -->
-        <section id="chooseFateTitle">
-          <h2>Choose your fate:</h2>
-        </section>
-        <!-- 3 images of rock paper scissors -->
-        <div id="iconSection">
-          <section><img src="https://img.icons8.com/stickers/200/rock.png" alt="Rock"/></section>
-          <section><img src="https://img.icons8.com/stickers/200/paper.png" alt="Paper"/></section>
-          <section><img src="https://img.icons8.com/stickers/200/scissors.png" alt="Scissors"/></section>
-        </div>      
-        <div id="continueButtonSection">
-        </div>
+
+    <!-- Choose Fate Section -->
+    <div id="chooseFateSection">
+      <section id="chooseFateTitle"></section>
+      <div id="iconSection">
+        <section><img class="iconsImages" src="https://img.icons8.com/stickers/200/rock.png" alt="Rock" /></section>
+        <section><img class="iconsImages" src="https://img.icons8.com/stickers/200/paper.png" alt="Paper" /></section>
+        <section><img class="iconsImages" src="https://img.icons8.com/stickers/200/scissors.png" alt="Scissors" /></section>
+      </div>
+      <div id="continueButtonSection"></div>
     </div>
+
+    <!-- Countdown Section -->
     <div id="countdownSection">
       <h2 id="count">0</h2>
     </div>
+
+    <!-- Final Results Section -->
     <div id="finalResults">
+      <div id="announcementSection">
+        <h3 id="announcement">Winner or Loser</h3>
+      </div>
       <div>
-        <!-- Section - You -->
+        <!-- User's Choice -->
         <section>
           <h2>You</h2>
-          <img src="" id="userIcon" alt="Your Choice"/>
+          <img src="" id="userIcon" alt="Your Choice" />
           <p id="userAnswer">Paper</p>
         </section>
-        <!-- Section - Middle -->
-         <!-- Section - Computer -->
-         <section>
+
+        <!-- Computer's Choice -->
+        <section>
           <h2>Computer</h2>
           <img src="" id="computerIcon" alt="Computer's Choice" />
           <p id="computerAnswer">Paper</p>
         </section>
       </div>
-      <div id="announcementSection">
-        <h3 id="announcement">Winner or Loser</h3>
-      </div>
       <div id="playAgainSection"></div>
     </div>
   </main>
-  <footer>
-  </footer>
-  <script src="script.js"></script> 
+
+  <footer></footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

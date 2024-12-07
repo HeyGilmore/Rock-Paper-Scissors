@@ -1,108 +1,102 @@
+/* Import fonts and reset styles */
 @import url("reset.css");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-html{height: 100%;}
-body{
+/* Global styles */
+html, body {
     height: 100%;
+    margin: 0;
     width: 100%;
     background-color: royalblue;
-    font-family: "Roboto", serif;
+    font-family: 'Roboto', serif;
 }
-header div h1{
+
+/* Header styling */
+header div h1 {
     color: #1e1e1e;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
-    padding: 1em 0;
-    font-size: 37px;
+    font-size: 42px;
     text-transform: uppercase;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 5rem;
+    text-shadow: 2px 1px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+
+
 }
-main{
+
+/* Main content area */
+main {
     height: 100%;
     width: 100%;
-}
-
-#introductionSection{
-    width: 90%;
-    height: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 0 auto;
-}
-
-#introductionSection section {
-    max-width: 600px;
-}
-
-#introductionSection .startButtonSection  {
-    display: flex;
-    justify-content: center;
 }
 
 /* Button hover effect */
-.startButton:hover {
-    background-color: rgb(59, 172, 93); /* Change to your desired hover color */
-    transition: background-color 0.3s ease; /* Optional: add smooth transition */
+.startButton:hover, 
+.continueButton:hover, 
+.playAgainButton:hover {
+    background-color: rgb(59, 172, 93); /* Hover color */
+    transition: background-color 0.3s ease;
 }
 
 /* _________ Choose Fate Section _________ */
-/* title */
-#chooseFateTitle{
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 2em;
-}
-/* Icons  */
-#chooseFateSection #iconSection section img, img {
-    max-width: 100%;
-    height: auto;
-    transition: transform .7s ease-out;  /* Hover Effect*/
-    transition: filter 0.3s ease; /* Clicked Effect*/
-}
-/* Hover effect when icon is clicked */
-#chooseFateSection #iconSection section img:hover {
+
+/* Icon hover effect */
+#chooseFateSection #iconSection section .iconsImages:hover {
     transform: scale(1.2);
 }
-/* Box shadow effect when icon is clicked */
+
+/* Box shadow effect for selected icon */
 .box-shadow {
     filter: drop-shadow(0px 0px 25px rgba(255, 255, 255, 0.728)); 
     transform: scale(1.2);
 }
 
-/* Button hover effect */
-.continueButton:hover, .playAgainButton:hover {
-    background-color: rgb(59, 172, 93); /* Change to your desired hover color */
-    transition: background-color 0.3s ease; /* Optional: add smooth transition */
+
+
+/* _________ CountDown _________ */
+#count{
+    font-size: 162px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 1em;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+
 }
 
-#finalResults div{
+/* _________ Final Results Section _________ */
+#finalResults div {
     display: flex;
     justify-content: space-around;
+    margin-top: 3.5rem;
 }
 
-#finalResults div section h2{
+#finalResults div section h2 {
     text-align: center;
     font-size: 32px;
     text-decoration: underline;
     padding-bottom: 24px;
 }
 
-#finalResults div section p{
+#finalResults div section p {
     text-align: center;
     font-size: 22px;
 }
 
-#finalResults div section #countdown{
+#finalResults div section #countdown {
     font-size: 48px;
     font-weight: 700;
 }
-#announcement{
+
+/* Announcement result styling */
+#announcement {
     font-size: 42px;
-    margin-top: 1.4em;
-    letter-spacing: .3px;
+    margin-top: 1em;
+    letter-spacing: 0.3px;
     font-weight: 600;
     color: yellow;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+    0px 8px 13px rgba(0,0,0,0.1),
+    0px 18px 23px rgba(0,0,0,0.1);
 }
