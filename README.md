@@ -4,7 +4,7 @@
 
 <p align="center">This project is a Rock-Paper-Scissors game built with HTML, CSS, and JavaScript. It's a hands-on exercise in learning to approach problems step by step while building confidence in DOM manipulation and event handling.</p>
 
-![screenshot]()
+![screenshot](/img/Screenshot.png)
 
 <!-- ROADMAP -->
 <h2 align="center">
@@ -26,7 +26,7 @@
 - [x] Create a button to play again.
 - [x] Functional Play Again button to start over
   - [x] got a greeting message when pushed
-- [ ] WIll have to refactor my js in order to get tbe play again button to work.
+- [xs] WIll have to refactor my js in order to get tbe play again button to work.
 
 <h2 align="center">
 The Process
@@ -43,12 +43,3 @@ The Process
 * <strong>Bonus Idea:</strong>
   - Use local storage to save the history of the game.
   - Clear history if needed.
-
-<!-- FAQ -->
-<h2 align="center">
-FAQ
-</h2>
-
-<!-- - How to handle localStorage?
-
-  - Answer 1 -->
